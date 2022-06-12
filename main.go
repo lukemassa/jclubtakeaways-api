@@ -39,5 +39,6 @@ func main() {
 func GetToken(w http.ResponseWriter, r *http.Request) {
     tok := token.GetToken()
     res := fmt.Sprintf("{\"token\":\"%s\",\"error\":\"\"}", tok)
+    w.Header().Set("Access-Control-Allow-Origin", "*")
 	fmt.Fprintf(w, res)
 }
