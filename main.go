@@ -37,5 +37,7 @@ func main() {
 
 // GetToken API to get a single token
 func GetToken(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, token.GetToken())
+    tok := token.GetToken()
+    res := fmt.Sprintf("{\"token\":\"%s\",\"error\":\"\"}", tok)
+	fmt.Fprintf(w, res)
 }
